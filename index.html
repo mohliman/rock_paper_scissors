@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            let choices = ['Rock','Paper','Scissors'];
+            let random = Math.floor(Math.random() * 3);
+            let choice = choices[random];
+            return choice;
+        }
+
+        function playRound(playerSelection, computerSelection){
+            let playerChoice = playerSelection.toLowerCase();
+            let computerChoice = computerSelection.toLowerCase();
+            // rock vs paper
+            if(playerChoice === 'rock' && computerChoice === 'paper'){
+                console.log('You Lose! Paper beats Rock');
+            }else if(playerChoice === 'paper' && computerChoice === 'rock'){
+                console.log('You Win! Paper beats Rock');
+            }
+            // rock vs scissors
+            else if(playerChoice === 'rock' && computerChoice === 'scissors'){
+                console.log('You Win! Rock beats Scissors');
+            }else if(playerChoice === 'scissors' && computerChoice === 'rock'){
+                console.log('You Lose! Rock beats Scissors');
+            }
+            // scissors vs paper
+            else if(playerChoice === 'scissors' && computerChoice === 'paper'){
+                console.log('You Win! Scissors beats Paper');
+            }else if(playerChoice === 'paper' && computerChoice === 'scissors'){
+                console.log('You Lose! Scissors beats Paper');
+            }
+            // Draws
+            else if(playerChoice === 'paper' && computerChoice === 'paper'){
+                console.log('Draw! Paper vs Paper');
+            }else if(playerChoice === 'rock' && computerChoice === 'rock'){
+                console.log('Draw! Rock vs Rock');
+            }else if(playerChoice === 'scissors' && computerChoice === 'scissors'){
+                console.log('Draw! Scissors vs Scissors');
+            }
+        }
+
+        let player = prompt('Make Your Selection!')
+        let computer = getComputerChoice()
+
+        playRound(player, computer);
+    </script>
+</body>
+</html>
