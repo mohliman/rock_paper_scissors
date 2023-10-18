@@ -20,20 +20,26 @@
             // rock vs paper
             if(playerChoice === 'rock' && computerChoice === 'paper'){
                 console.log('You Lose! Paper beats Rock');
+                return 'Computer Win!';
             }else if(playerChoice === 'paper' && computerChoice === 'rock'){
                 console.log('You Win! Paper beats Rock');
+                return 'Player Win!';
             }
             // rock vs scissors
             else if(playerChoice === 'rock' && computerChoice === 'scissors'){
                 console.log('You Win! Rock beats Scissors');
+                return 'Player Win!';
             }else if(playerChoice === 'scissors' && computerChoice === 'rock'){
                 console.log('You Lose! Rock beats Scissors');
+                return 'Computer Win!';
             }
             // scissors vs paper
             else if(playerChoice === 'scissors' && computerChoice === 'paper'){
                 console.log('You Win! Scissors beats Paper');
+                return 'Player Win!';
             }else if(playerChoice === 'paper' && computerChoice === 'scissors'){
                 console.log('You Lose! Scissors beats Paper');
+                return 'Computer Win!';
             }
             // Draws
             else if(playerChoice === 'paper' && computerChoice === 'paper'){
@@ -45,10 +51,40 @@
             }
         }
 
-        let player = prompt('Make Your Selection!')
-        let computer = getComputerChoice()
 
-        playRound(player, computer);
+
+        // game loop, 5 rounds
+        function game(){
+            let index = 0;
+            let rounds = 5;
+            let playerScore = 0;
+            let computerScore = 0;
+
+
+            while(index < rounds){
+                let player = prompt('Make Your Selection!');
+                let computer = getComputerChoice();
+
+                let round = playRound(player, computer);
+                // console.log(round)
+                if(round === 'Player Win!'){
+                    playerScore += 1
+                }else if(round === 'Computer Win!'){
+                    computerScore += 1
+                }
+                index++;
+            }
+
+            if(playerScore > computerScore){
+                console.log('FINAL: You Won! and Computer Lost!')
+            }else if(playerScore === computerScore){
+                console.log('FINAL: Its a Draw!')
+            }else{
+                console.log('FINAL: Computer Won! and You Lost!')
+            }
+        }
+
+        game()
     </script>
 </body>
 </html>
